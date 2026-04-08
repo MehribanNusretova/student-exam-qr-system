@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: student-exam-project
+
+  datasource:
+    url: jdbc:postgresql://my-postgres-db-student-exam-project.i.aivencloud.com:23016/defaultdb
+    username: avnadmin
+    password: AVNS_hFu_Hfta899rOq819Q9
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mehribannusretovatry@gmail.com
+    password: zbch sjeb qdzc muhq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
