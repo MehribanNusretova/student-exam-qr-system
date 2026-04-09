@@ -24,4 +24,4 @@ public class FirstExam {
 
     @Column(name="second_exam_qr_url")
     String secondExamQrUrl;
-};
+}
