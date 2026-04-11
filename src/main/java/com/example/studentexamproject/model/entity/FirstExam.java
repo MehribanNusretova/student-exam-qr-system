@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+
+
+
 @Entity
 @Table(name="first_exam")
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -11,6 +14,7 @@ import lombok.experimental.FieldDefaults;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class FirstExam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +24,9 @@ public class FirstExam {
     @JoinColumn(name="Student_id",unique=true)
     Student student;
 
-    boolean pass;
+    Boolean pass;
 
-    @Column(name="second_exam_qr_url")
-    String secondExamQrUrl;
+   Integer result;
+    @Column(name = "second_exam_qr_url", columnDefinition = "TEXT")
+    String QrUrl;
 }

@@ -3,9 +3,9 @@ spring:
     name: student-exam-project
 
   datasource:
-    url: jdbc:postgresql://my-postgres-db-student-exam-project.i.aivencloud.com:23016/defaultdb
-    username: avnadmin
-    password: AVNS_hFu_Hfta899rOq819Q9
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -17,10 +17,18 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: mehribannusretovatry@gmail.com
-    password: zbch sjeb qdzc muhq
+    password: asao pvko ltad fipm
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
+            required: true
+
+
+  mvc:
+   cors:
+     allowed-origins: "*"
+     allowed-methods: "*"
+     allowed-headers: "*"
