@@ -14,31 +14,31 @@ import java.time.LocalDateTime;
     @ExceptionHandler(InvalidCredentialsException.class)
     public ResponseEntity<RegisterResponse> handleInvalidCredentials(InvalidCredentialsException ex) {
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-              .body(new RegisterResponse(ex.getMessage(), 401, LocalDateTime.now()));
+              .body(new RegisterResponse(ex.getMessage(), 401, LocalDateTime.now(),null));
     }
 
     @ExceptionHandler(ExamNotPassedException.class)
     public ResponseEntity<RegisterResponse> handleNotPassed(ExamNotPassedException ex) {
       return ResponseEntity.status(HttpStatus.FORBIDDEN)
-              .body(new RegisterResponse(ex.getMessage(), 403, LocalDateTime.now()));
+              .body(new RegisterResponse(ex.getMessage(), 403, LocalDateTime.now(),null));
     }
 
     @ExceptionHandler(QrAlreadyExistsException.class)
     public ResponseEntity<RegisterResponse> handleQrExists(QrAlreadyExistsException ex) {
       return ResponseEntity.status(HttpStatus.CONFLICT)
-              .body(new RegisterResponse(ex.getMessage(),409, LocalDateTime.now()));
+              .body(new RegisterResponse(ex.getMessage(),409, LocalDateTime.now(),null));
     }
     @ExceptionHandler(EmailAlreadyExistsException.class)
     public ResponseEntity<RegisterResponse> handleQrExists(EmailAlreadyExistsException ex) {
       return ResponseEntity.status(HttpStatus.CONFLICT)
-              .body(new RegisterResponse(ex.getMessage(), 409, LocalDateTime.now()));
+              .body(new RegisterResponse(ex.getMessage(), 409, LocalDateTime.now(),null));
     }
 
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<RegisterResponse> handleGeneral(Exception ex) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-              .body(new RegisterResponse("Internal server error", 500, LocalDateTime.now()));
+              .body(new RegisterResponse("Internal server error", 500, LocalDateTime.now(),null));
     }
 
   }

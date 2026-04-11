@@ -60,6 +60,7 @@ public class SecondExamService {
                 .message("Qeydiyyat uğurlu oldu")
                 .status(201)
                 .timestamp(LocalDateTime.now())
+                .data(qrUrl)
                 .build();
     }
 

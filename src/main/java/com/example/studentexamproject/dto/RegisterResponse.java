@@ -15,4 +15,5 @@ public class RegisterResponse {
     String message;
     int status;
     LocalDateTime timestamp;
+    Object data;
 }
