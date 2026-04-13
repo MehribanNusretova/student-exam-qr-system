@@ -51,5 +51,4 @@ Improve validation and error handling
 👩‍💻 Author
 
 Mehriban Nusretova
-
 GitHub: https://github.com/MehribanNusretova
