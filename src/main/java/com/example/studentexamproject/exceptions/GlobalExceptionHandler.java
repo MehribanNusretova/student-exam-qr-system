@@ -4,9 +4,12 @@ package com.example.studentexamproject.exceptions;
 import com.example.studentexamproject.dto.ApiResponse;
 import com.example.studentexamproject.dto.RegisterResponse;
 import org.springframework.http.*;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @RestControllerAdvice
   public class GlobalExceptionHandler {
@@ -34,6 +37,15 @@ import java.time.LocalDateTime;
               .body(new ApiResponse(ex.getMessage(), 409, LocalDateTime.now(),null));
     }
 
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiResponse> handleValidation(MethodArgumentNotValidException ex) {
+      Map<String, String> errors = new LinkedHashMap<>();
+      ex.getBindingResult().getFieldErrors()
+              .forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+              .body(new ApiResponse("Validasiya xətası", 400, LocalDateTime.now(), errors));
+    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse> handleGeneral(Exception ex) {
