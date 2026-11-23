@@ -130,4 +130,5 @@ docker run --name exam-db -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=exam_db -
 ## Author
 
 **Mehriban Nüsrətova** — Junior Java Backend Developer
+
 [LinkedIn](https://www.linkedin.com/in/mehriban-nusratova) · [GitHub](https://github.com/MehribanNusretova)
